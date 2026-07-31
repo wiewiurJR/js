@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista użytkowników</title>
+</head>
+<body>
+<br>
+<%- include('navbar', {links: links}); %>
+
+
+<h1>Wiadomości</h1>
+<ul>
+    <% messages.forEach(message => { %>
+        <li><%= message.text %></li>
+        <li><%= message.user %></li>
+        <li><%= message.added %></li>
+        <br>
+    <% }); %>
+</ul>
+<%- include('form'); %>
+</body>
+</html>
