@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadania</title>
+</head>
+
+
+<body>
+<h1>Zadania</h1>
+<% if(tasks){ %>
+ <%   if(tasks.length === 0){   %>
+       <p>Brak Zadań<p>
+    <% }else{ %>
+        <% for(task of tasks){ %>
+        <div style="clear: both">
+            <form action="/tasks/<%= task.id%>" method="POST" style="float: left" >
+                <input type="hidden" name="_method" value="PUT">
+                <input name="completed"  id="completed-<%= task.id%>" type="checkbox" <%=task.completed ? 'checked':''%> onChange="this.form.submit()">
+                <label  for="completed-<%= task.id%>"> <%= task.title%></label>
+             </form>
+     <form action="/tasks/<%= task.id%>" method="POST" style="float: left">
+         <input type="hidden" name="_method" value="DELETE">
+         <button style="background-color: transparent;border: none "onclick="this.form.submit()">❌</button>
+
+     </form>
+        </div>
+  <% }%>
+  <% }%>
+<% } %>
+<br>
+<hr>
+<h3>Dodaj Zadanie </h3>
+<form action="/tasks" method="post">
+    <label for="title">Nowe Zadanie</label>
+    <input type="text" id="title" name="title" required>
+    <input type="submit">
+</form>
+</body>
+
+
+
+
+
+</html>
