@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+
+
+<body>
+<div style="text-align: center">
+<h1>Wpisz lokalizaje której szukasz
+</h1>
+
+<form action="/message" method="POST">
+    <input type="text" name="city" placeholder="Miasto" required>
+    <button type="submit" >Search</button>
+</form>
+</div>
+<% if (locals.error) { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+<% if (locals.weather) { %>
+    <div style="text-align: center; margin-top: 20px;">
+        <h2>Pogoda dla: <%= weather.city %></h2>
+        <p><strong>Data:</strong> <%= weather.date %></p>
+        <p><strong>Temperatura:</strong> <%= weather.temp %> °C</p>
+        <p><strong>Opis:</strong> <%= weather.description %></p>
+        <p><strong>Wilgotność:</strong> <%= weather.humidity %>%</p>
+    </div>
+<% } %>
+</body>
+
+
+
+
+
+</html>
