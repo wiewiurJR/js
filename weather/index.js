@@ -14,12 +14,19 @@ app.get('/', (req, res) => res.render('main.ejs'));
 
 app.post('/message', async (req,res) => {
 
+    const date = new Date();
+    console.log(date.getMonth());
+    console.log(date.getFullYear());
+    console.log(date.getDate());
+
+
+
     const location = req.body.city;
     console.log(location);
     try{
     const locationResponse = await fetch(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/` +
-        `${location}/2026-08-20` +
+        `${location}/${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` +
         `?unitGroup=metric` +
         `&lang=pl` +
         `&include=days,hours` +
