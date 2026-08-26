@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Shortener</title>
+</head>
+<body>
+
+<div style="text-align: center;">
+    <h1>Skracacz linków</h1>
+<form action="/shorten" method="post">
+
+    <input type="text" name="url" placeholder="Wklej adres URL" required style="width: 300px; padding: 5px;" >
+    <button type="submit">Skróć</button>
+</form>
+    <div style="margin-top: 20px;">
+        <% if (locals.ShortUrl) { %>
+            <p>Twój skrócony link:</p>
+            <a href="<%= ShortUrl %>" target="_blank" ><%= ShortUrl %></a>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
