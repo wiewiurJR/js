@@ -49,5 +49,3 @@ Prosta aplikacja pogodowa, która wyświetla informacje o pogodzie dla miasta po
    ```
 
 5. Otwórz w przeglądarce [http://localhost:3000](http://localhost:3000).
-
-Obecna wersja pobiera dane pogodowe dla daty `2026-08-20`.
